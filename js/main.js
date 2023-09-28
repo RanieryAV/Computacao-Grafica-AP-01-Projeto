@@ -38,6 +38,30 @@ const texturaTerra = textureLoader.load("https://assets.codepen.io/141041/small-
 // Inicializa geometria da Terra
 const geometriaTerra = new THREE.SphereGeometry(1, 32, 32);
 
+// Inicializa geometria de Marte
+const geometriaMarte = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Saturno
+const geometriaSaturno = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Júpiter
+const geometriaJupiter = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Netuno
+const geometriaNetuno = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Urano
+const geometriaUrano  = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Vênus
+const geometriaVenus  = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria de Mercúrio
+const geometriaMercurio  = new THREE.SphereGeometry(1, 32, 32);
+
+// Inicializa geometria do Sol
+const geometriaSol  = new THREE.SphereGeometry(110, 32, 32);
+
 // Inicializa material da Terra
 const materialTerra = new THREE.MeshBasicMaterial({
 map: texturaTerra
@@ -46,8 +70,165 @@ map: texturaTerra
 // Inicializa objeto Terra
 const terra = new THREE.Mesh(geometriaTerra, materialTerra)
 
+// Inicializa objeto Marte
+const marte = new THREE.Mesh(geometriaMarte)//, materialTerra)
+
+// Inicializa objeto Saturno
+const saturno = new THREE.Mesh(geometriaSaturno)//, materialTerra)
+
+// Inicializa objeto Jupiter
+const jupiter = new THREE.Mesh(geometriaJupiter)//, materialTerra)
+
+// Inicializa objeto Netuno
+const netuno = new THREE.Mesh(geometriaNetuno)//, materialTerra)
+
+// Inicializa objeto Urano
+const urano = new THREE.Mesh(geometriaUrano)//, materialTerra)
+
+// Inicializa objeto Venus
+const venus = new THREE.Mesh(geometriaVenus)//, materialTerra)
+
+// Inicializa objeto Mercurio
+const mercurio = new THREE.Mesh(geometriaMercurio)//, materialTerra)
+
+// Inicializa objeto Sol
+const sol = new THREE.Mesh(geometriaSol)//, materialTerra)
+
 // Adiciona Terra na cena
 scene.add(terra)
+
+// Adiciona marte na cena
+scene.add(marte)
+
+// Adiciona saturno na cena
+scene.add(saturno)
+
+// Adiciona Jupiter na cena
+scene.add(jupiter)
+
+// Adiciona netuno na cena
+scene.add(netuno)
+
+// Adiciona urano na cena
+scene.add(urano)
+
+// Adiciona venus na cena
+scene.add(venus)
+
+// Adiciona mercurio na cena
+scene.add(mercurio)
+
+// Adiciona sol na cena
+scene.add(sol)
+
+// Posicionamento dos planetas
+// ----------
+// Terra
+terra.position.set(3, 0, 3)
+
+// Marte
+marte.position.set(6, 0, 6)
+
+// Saturno
+saturno.position.set(9, 0, 9)
+
+// Jupiter
+jupiter.position.set(12, 0, 12)
+
+// Netuno
+netuno.position.set(-3, 0, -3)
+
+// Urano
+urano.position.set(-6, 0, -6)
+
+// Venus
+venus.position.set(-9, 0, -9)
+
+// Mercurio
+mercurio.position.set(-12, 0, -12)
+
+// Sol
+sol.position.set(0, 0, 0)
+
+// Rotação dos planetas
+// ----------
+
+// Terra
+terra.rotation.set(0, 0, 0)
+
+// Marte
+marte.rotation.set(0, 0, 0)
+
+// Saturno
+saturno.rotation.set(0, 0, 0)
+
+// Jupiter
+jupiter.rotation.set(0, 0, 0)
+
+// Netuno
+netuno.rotation.set(0, 0, 0)
+
+// Urano
+urano.rotation.set(0, 0, 0)
+
+// Venus
+venus.rotation.set(0, 0, 0)
+
+// Mercurio
+mercurio.rotation.set(0, 0, 0)
+
+// Sol
+sol.rotation.set(0, 0, 0)
+
+// Escala dos planetas
+// ----------
+
+// Terra
+terra.scale.set(1, 1, 1)
+
+// Marte
+marte.scale.set(0.5, 0.5, 0.5)
+
+// Saturno
+saturno.scale.set(0.8, 0.8, 0.8)
+
+// Jupiter
+jupiter.scale.set(0.9, 0.9, 0.9)
+
+// Netuno
+netuno.scale.set(0.7, 0.7, 0.7)
+
+// Urano
+urano.scale.set(0.6, 0.6, 0.6)
+
+// Venus
+venus.scale.set(0.4, 0.4, 0.4)
+
+// Mercurio
+mercurio.scale.set(0.3, 0.3, 0.3)
+
+// Sol
+sol.scale.set(1, 1, 1)
+
+// Posicionamento da câmera
+// ----------
+
+// Posiciona câmera em Z
+camera.position.z = 45
+
+// Posiciona câmera em Y
+camera.position.y = 0
+
+// Posiciona câmera em X
+camera.position.x = 0
+
+// Rotação da câmera
+// ----------
+// Rotaciona câmera em X
+
+// Rotaciona câmera em Z
+
+// Rotaciona câmera em Y
 
 // Nuvens
 // ----------
@@ -70,6 +251,8 @@ const nuvens = new THREE.Mesh(geometriaNuvens, materialNuvens)
 
 // Adiciona nuvens na cena
 scene.add(nuvens)
+
+nuvens.position.set(3, 0, 3)
 
 // Animação
 // ----------      

@@ -60,7 +60,7 @@ const geometriaVenus  = new THREE.SphereGeometry(1, 32, 32);
 const geometriaMercurio  = new THREE.SphereGeometry(1, 32, 32);
 
 // Inicializa geometria do Sol
-const geometriaSol  = new THREE.SphereGeometry(110, 32, 32);
+const geometriaSol  = new THREE.SphereGeometry(2, 32, 32);
 
 // Inicializa material da Terra
 const materialTerra = new THREE.MeshBasicMaterial({

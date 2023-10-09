@@ -215,7 +215,7 @@ sol.scale.set(1, 1, 1);
 // ----------
 
 // Posiciona câmera em Z
-camera.position.z = 70;
+camera.position.z = 80;
 
 // Posiciona câmera em Y
 camera.position.y = 0;

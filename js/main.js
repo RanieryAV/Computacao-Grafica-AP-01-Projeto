@@ -28,7 +28,7 @@ document.body.appendChild(renderer.domElement);
 // ----------
 
 const textureLoader = new THREE.TextureLoader();
-const texturaTerra = textureLoader.load("https://assets.codepen.io/141041/small-world.jpg");
+const texturaTerra = textureLoader.load("/texturas/small-world.jpg");
 
 // Inicializa geometria da Terra
 const geometriaTerra = new THREE.SphereGeometry(1, 32, 32);
@@ -118,29 +118,35 @@ scene.add(sol);
 
 // Posicionamento dos planetas
 // ----------
-// Terra
-terra.position.set(3, 0, 3);
-
-// Marte
-marte.position.set(6, 0, 6);
-
-// Saturno
-saturno.position.set(9, 0, 9);
-
-// Jupiter
-jupiter.position.set(12, 0, 12);
-
-// Netuno
-netuno.position.set(-3, 0, -3);
-
-// Urano
-urano.position.set(-6, 0, -6);
+// Mercurio
+mercurio.position.set(3, 0, 3);
 
 // Venus
-venus.position.set(-9, 0, -9);
+venus.position.set(6, 0, 6);
 
-// Mercurio
-mercurio.position.set(-12, 0, -12);
+// Terra
+terra.position.set(9, 0, 9);
+
+// Marte
+marte.position.set(12, 0, 12);
+
+// Jupiter
+jupiter.position.set(15, 0, 15);
+
+// Saturno
+saturno.position.set(18, 0, 18);
+
+// Urano
+urano.position.set(21, 0, 21);
+
+// Netuno
+netuno.position.set(24, 0, 24);
+
+
+
+
+
+
 
 // Sol
 sol.position.set(0, 0, 0);
@@ -209,7 +215,7 @@ sol.scale.set(1, 1, 1);
 // ----------
 
 // Posiciona câmera em Z
-camera.position.z = 45;
+camera.position.z = 70;
 
 // Posiciona câmera em Y
 camera.position.y = 0;
@@ -229,9 +235,7 @@ camera.position.x = 0;
 // ----------
 
 // Carrega textura das nuvens
-const texturaNuvens = new THREE.TextureLoader().load(
-  "https://assets.codepen.io/141041/small-world-clouds.png"
-);
+const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
 
 // Inicializa geometria de nuvens
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
@@ -248,7 +252,7 @@ const nuvens = new THREE.Mesh(geometriaNuvens, materialNuvens);
 // Adiciona nuvens na cena
 scene.add(nuvens);
 
-nuvens.position.set(3, 0, 3);
+nuvens.position.set(9, 0, 9);
 
 // Animação
 // ----------

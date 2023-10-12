@@ -37,6 +37,9 @@ const texturaNetuno = textureLoader.load("/texturas/TEXT_Netuno.jpg");
 const texturaUrano = textureLoader.load("/texturas/TEXT_Urano.jpg");
 const texturaJupiter = textureLoader.load("/texturas/TEXT_Jupiter.jpg");
 const texturaSaturno = textureLoader.load("/texturas/TEXT_Saturno.jpg");
+const texturaLua = textureLoader.load("/texturas/TEXT_Lua.jpg");
+const texturaTita = textureLoader.load("/texturas/TEXT_Tita.jpg");
+const texturaEuropa = textureLoader.load("/texturas/TEXT_Europa.jpg");
 
 // Inicializa as geometrias
 
@@ -49,6 +52,9 @@ const geometriaUrano = new THREE.SphereGeometry(1, 32, 32);
 const geometriaVenus = new THREE.SphereGeometry(1, 32, 32);
 const geometriaMercurio = new THREE.SphereGeometry(1, 32, 32);
 const geometriaSol = new THREE.SphereGeometry(2, 32, 32);
+const geometriaLua = new THREE.SphereGeometry(1, 32, 32);
+const geometriaTita = new THREE.SphereGeometry(1, 32, 32);
+const geometriaEuropa = new THREE.SphereGeometry(1, 32, 32);
 
 // Inicializa os materiais
 
@@ -88,6 +94,18 @@ const materialNetuno = new THREE.MeshBasicMaterial({
   map: texturaNetuno,
 });
 
+const materialLua = new THREE.MeshBasicMaterial({
+  map: texturaLua,
+});
+
+const materialTita = new THREE.MeshBasicMaterial({
+  map: texturaTita,
+});
+
+const materialEuropa = new THREE.MeshBasicMaterial({
+  map: texturaEuropa,
+});
+
 // Inicializa os objetos
 
 const terra = new THREE.Mesh(geometriaTerra, materialTerra);
@@ -99,6 +117,9 @@ const urano = new THREE.Mesh(geometriaUrano, materialUrano);
 const venus = new THREE.Mesh(geometriaVenus, materialVenus); 
 const mercurio = new THREE.Mesh(geometriaMercurio, materialMercurio); 
 const sol = new THREE.Mesh(geometriaSol, materialSol);
+const lua = new THREE.Mesh(geometriaLua, materialLua);
+const tita = new THREE.Mesh(geometriaTita, materialTita);
+const europa = new THREE.Mesh(geometriaEuropa, materialEuropa);
 
 // Adiciona cada objeto a cena
 
@@ -111,6 +132,9 @@ scene.add(urano);
 scene.add(venus);
 scene.add(mercurio);
 scene.add(sol);
+scene.add(lua);
+scene.add(tita);
+scene.add(europa);
 
 // Posicionamento dos corpos celestes
 
@@ -123,6 +147,9 @@ saturno.position.set(18, 0, 18);
 urano.position.set(21, 0, 21);
 netuno.position.set(24, 0, 24);
 sol.position.set(0, 0, 0);
+lua.position.set(7.65, 0.3 ,8);
+tita.position.set(19.3, -0.2 ,18);
+europa.position.set(13.7, -0.3 ,15);
 
 // Rotação dos corpos celestes
 
@@ -135,6 +162,9 @@ urano.rotation.set(0, 0, 0);
 venus.rotation.set(0, 0, 0);
 mercurio.rotation.set(0, 0, 0);
 sol.rotation.set(0, 0, 0);
+lua.rotation.set(0,0,0);
+tita.rotation.set(0,0,0);
+europa.rotation.set(0,0,0);
 
 // Escala dos corpos celestes
 
@@ -147,12 +177,18 @@ urano.scale.set(0.6, 0.6, 0.6);
 venus.scale.set(0.4, 0.4, 0.4);
 mercurio.scale.set(0.3, 0.3, 0.3);
 sol.scale.set(1, 1, 1);
+lua.scale.set(0.12, 0.12, 0.12);
+tita.scale.set(0.15, 0.15, 0.15);
+europa.scale.set(0.18, 0.18, 0.18);
 
 // Posicionamento da câmera (X,Y,Z)
 
 camera.position.x = 0;
 camera.position.y = 0;
 camera.position.z = 80;
+
+camera.position.x = 9;
+camera.position.z = 15;
 
 // Rotação da câmera
 // ----------
@@ -191,8 +227,17 @@ function animate() {
   // Rotaciona Terra
   terra.rotation.y += 0.0005;
 
+  // Rotaciona Lua
+  lua.rotation.y += 0.001;
+
+  // Rotaciona Titã
+  tita.rotation.y += 0.001;
+
+  // Rotaciona Europa
+  europa.rotation.y += 0.0008;
+
   // Rotaciona nuvens
-  nuvens.rotation.y -= 0.001;
+  nuvens.rotation.y -= 0.0008;
 
   // Renderiza cena
   renderer.render(scene, camera);

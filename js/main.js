@@ -187,9 +187,6 @@ camera.position.x = 0;
 camera.position.y = 0;
 camera.position.z = 80;
 
-camera.position.x = 9;
-camera.position.z = 15;
-
 // Rotação da câmera
 // ----------
 // Rotaciona câmera em X

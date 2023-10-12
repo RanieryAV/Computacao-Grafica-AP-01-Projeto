@@ -24,204 +24,135 @@ document.body.appendChild(renderer.domElement);
 
 //const controls = new OrbitControls(camera, renderer.domElement)
 
-// Terra
-// ----------
+// Texturas
 
 const textureLoader = new THREE.TextureLoader();
+
 const texturaTerra = textureLoader.load("/texturas/small-world.jpg");
+const texturaSol = textureLoader.load("/texturas/TEXT_Sol.jpg");
+const texturaMarte = textureLoader.load("/texturas/TEXT_Marte.jpg");
+const texturaVenus = textureLoader.load("/texturas/TEXT_Venus.jpg");
+const texturaMercurio = textureLoader.load("/texturas/TEXT_Mercurio.jpg");
+const texturaNetuno = textureLoader.load("/texturas/TEXT_Netuno.jpg");
+const texturaUrano = textureLoader.load("/texturas/TEXT_Urano.jpg");
+const texturaJupiter = textureLoader.load("/texturas/TEXT_Jupiter.jpg");
+const texturaSaturno = textureLoader.load("/texturas/TEXT_Saturno.jpg");
 
-// Inicializa geometria da Terra
+// Inicializa as geometrias
+
 const geometriaTerra = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Marte
 const geometriaMarte = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Saturno
 const geometriaSaturno = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Júpiter
 const geometriaJupiter = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Netuno
 const geometriaNetuno = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Urano
 const geometriaUrano = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Vênus
 const geometriaVenus = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria de Mercúrio
 const geometriaMercurio = new THREE.SphereGeometry(1, 32, 32);
-
-// Inicializa geometria do Sol
 const geometriaSol = new THREE.SphereGeometry(2, 32, 32);
 
-// Inicializa material da Terra
+// Inicializa os materiais
+
 const materialTerra = new THREE.MeshBasicMaterial({
   map: texturaTerra,
 });
 
-// Inicializa objeto Terra
+const materialSol = new THREE.MeshBasicMaterial({
+  map: texturaSol,
+});
+
+const materialMarte = new THREE.MeshBasicMaterial({
+  map: texturaMarte,
+});
+
+const materialVenus = new THREE.MeshBasicMaterial({
+  map: texturaVenus,
+});
+
+const materialMercurio = new THREE.MeshBasicMaterial({
+  map: texturaMercurio,
+});
+
+const materialJupiter = new THREE.MeshBasicMaterial({
+  map: texturaJupiter,
+});
+
+const materialSaturno = new THREE.MeshBasicMaterial({
+  map: texturaSaturno,
+});
+
+const materialUrano = new THREE.MeshBasicMaterial({
+  map: texturaUrano,
+});
+
+const materialNetuno = new THREE.MeshBasicMaterial({
+  map: texturaNetuno,
+});
+
+// Inicializa os objetos
+
 const terra = new THREE.Mesh(geometriaTerra, materialTerra);
+const marte = new THREE.Mesh(geometriaMarte, materialMarte); 
+const saturno = new THREE.Mesh(geometriaSaturno, materialSaturno);
+const jupiter = new THREE.Mesh(geometriaJupiter, materialJupiter); 
+const netuno = new THREE.Mesh(geometriaNetuno, materialNetuno); 
+const urano = new THREE.Mesh(geometriaUrano, materialUrano);
+const venus = new THREE.Mesh(geometriaVenus, materialVenus); 
+const mercurio = new THREE.Mesh(geometriaMercurio, materialMercurio); 
+const sol = new THREE.Mesh(geometriaSol, materialSol);
 
-// Inicializa objeto Marte
-const marte = new THREE.Mesh(geometriaMarte); //, materialTerra)
+// Adiciona cada objeto a cena
 
-// Inicializa objeto Saturno
-const saturno = new THREE.Mesh(geometriaSaturno); //, materialTerra)
-
-// Inicializa objeto Jupiter
-const jupiter = new THREE.Mesh(geometriaJupiter); //, materialTerra)
-
-// Inicializa objeto Netuno
-const netuno = new THREE.Mesh(geometriaNetuno); //, materialTerra)
-
-// Inicializa objeto Urano
-const urano = new THREE.Mesh(geometriaUrano); //, materialTerra)
-
-// Inicializa objeto Venus
-const venus = new THREE.Mesh(geometriaVenus); //, materialTerra)
-
-// Inicializa objeto Mercurio
-const mercurio = new THREE.Mesh(geometriaMercurio); //, materialTerra)
-
-// Inicializa objeto Sol
-const sol = new THREE.Mesh(geometriaSol); //, materialTerra)
-
-// Adiciona Terra na cena
 scene.add(terra);
-
-// Adiciona marte na cena
 scene.add(marte);
-
-// Adiciona saturno na cena
 scene.add(saturno);
-
-// Adiciona Jupiter na cena
 scene.add(jupiter);
-
-// Adiciona netuno na cena
 scene.add(netuno);
-
-// Adiciona urano na cena
 scene.add(urano);
-
-// Adiciona venus na cena
 scene.add(venus);
-
-// Adiciona mercurio na cena
 scene.add(mercurio);
-
-// Adiciona sol na cena
 scene.add(sol);
 
-// Posicionamento dos planetas
-// ----------
-// Mercurio
+// Posicionamento dos corpos celestes
+
 mercurio.position.set(3, 0, 3);
-
-// Venus
 venus.position.set(6, 0, 6);
-
-// Terra
 terra.position.set(9, 0, 9);
-
-// Marte
 marte.position.set(12, 0, 12);
-
-// Jupiter
 jupiter.position.set(15, 0, 15);
-
-// Saturno
 saturno.position.set(18, 0, 18);
-
-// Urano
 urano.position.set(21, 0, 21);
-
-// Netuno
 netuno.position.set(24, 0, 24);
-
-
-
-
-
-
-
-// Sol
 sol.position.set(0, 0, 0);
 
-// Rotação dos planetas
-// ----------
+// Rotação dos corpos celestes
 
-// Terra
 terra.rotation.set(0, 0, 0);
-
-// Marte
 marte.rotation.set(0, 0, 0);
-
-// Saturno
 saturno.rotation.set(0, 0, 0);
-
-// Jupiter
 jupiter.rotation.set(0, 0, 0);
-
-// Netuno
 netuno.rotation.set(0, 0, 0);
-
-// Urano
 urano.rotation.set(0, 0, 0);
-
-// Venus
 venus.rotation.set(0, 0, 0);
-
-// Mercurio
 mercurio.rotation.set(0, 0, 0);
-
-// Sol
 sol.rotation.set(0, 0, 0);
 
-// Escala dos planetas
-// ----------
+// Escala dos corpos celestes
 
-// Terra
 terra.scale.set(1, 1, 1);
-
-// Marte
 marte.scale.set(0.5, 0.5, 0.5);
-
-// Saturno
 saturno.scale.set(0.8, 0.8, 0.8);
-
-// Jupiter
 jupiter.scale.set(0.9, 0.9, 0.9);
-
-// Netuno
 netuno.scale.set(0.7, 0.7, 0.7);
-
-// Urano
 urano.scale.set(0.6, 0.6, 0.6);
-
-// Venus
 venus.scale.set(0.4, 0.4, 0.4);
-
-// Mercurio
 mercurio.scale.set(0.3, 0.3, 0.3);
-
-// Sol
 sol.scale.set(1, 1, 1);
 
-// Posicionamento da câmera
-// ----------
+// Posicionamento da câmera (X,Y,Z)
 
-// Posiciona câmera em Z
-camera.position.z = 80;
-
-// Posiciona câmera em Y
-camera.position.y = 0;
-
-// Posiciona câmera em X
 camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 80;
 
 // Rotação da câmera
 // ----------
@@ -231,28 +162,23 @@ camera.position.x = 0;
 
 // Rotaciona câmera em Y
 
+// Detalhes Adicionais:
 // Nuvens
-// ----------
 
-// Carrega textura das nuvens
 const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
-
-// Inicializa geometria de nuvens
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
 
-// Inicializa material de nuvens
 const materialNuvens = new THREE.MeshBasicMaterial({
   map: texturaNuvens,
   transparent: true, //torna fundo transparente
 });
 
-// Inicializa nuvens
 const nuvens = new THREE.Mesh(geometriaNuvens, materialNuvens);
-
-// Adiciona nuvens na cena
 scene.add(nuvens);
-
 nuvens.position.set(9, 0, 9);
+
+// Anel de Saturno
+// Satelite
 
 // Animação
 // ----------

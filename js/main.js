@@ -1,7 +1,12 @@
 // inspirado em https://smallworld.metronomy.co.uk/
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  30,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 
 // Reposicionamento da câmera em Z
 camera.position.set(0, 0, 45);
@@ -183,9 +188,9 @@ europa.scale.set(0.18, 0.18, 0.18);
 
 // Posicionamento da câmera (X,Y,Z)
 
-camera.position.x = 0;
+camera.position.x = 18;
 camera.position.y = 0;
-camera.position.z = 80;
+camera.position.z = 40;
 
 // Rotação da câmera
 // ----------
@@ -198,7 +203,9 @@ camera.position.z = 80;
 // Detalhes Adicionais:
 // Nuvens
 
-const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
+const texturaNuvens = new THREE.TextureLoader().load(
+  "/texturas/small-world-clouds.png"
+);
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
 
 const materialNuvens = new THREE.MeshBasicMaterial({
@@ -216,13 +223,34 @@ nuvens.position.set(9, 0, 9);
 // Animação
 // ----------
 
+// Definindo o objeto planetasRotacoes com os valores em formato JSON
+const planetasRotacoes = {
+  Mercurio: 0.0001,
+  Venus: 0.00002,
+  Terra: 0.0044,
+  Marte: 0.0043,
+  Jupiter: 0.10471,
+  Saturno: 0.0103,
+  Urano: 0.0058,
+  Netuno: 0.0055,
+};
+
 // Prepara loop de animação
 function animate() {
   // Requisita quadros de animação
   requestAnimationFrame(animate);
 
-  // Rotaciona Terra
-  terra.rotation.y += 0.0005;
+  // Planetas rochosos
+  terra.rotation.y += planetasRotacoes["Terra"];
+  venus.rotation.y += planetasRotacoes["Venus"];
+  mercurio.rotation.y += planetasRotacoes["Mercurio"];
+  marte.rotation.y += planetasRotacoes["Marte"];
+
+  // Planetas gasosos
+  jupiter.rotation.y += planetasRotacoes["Jupiter"];
+  saturno.rotation.y += planetasRotacoes["Saturno"];
+  urano.rotation.y += planetasRotacoes["Urano"];
+  netuno.rotation.y += planetasRotacoes["Netuno"];
 
   // Rotaciona Lua
   lua.rotation.y += 0.001;
@@ -240,7 +268,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// chamada da função animate
+// Chamada da função animate
 animate();
 
 // Redimensiona janela
@@ -265,10 +293,10 @@ function randomNumber(min, max) {
 const STAR_COUNT = 100;
 let result = "";
 for (let i = 0; i < STAR_COUNT; i++) {
-  result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(
-    0,
-    3
-  )}px ${randomNumber(0, 3)}px #fff,`;
+  result += `${randomNumber(-50, 50)}vw ${randomNumber(
+    -50,
+    50
+  )}vh ${randomNumber(0, 3)}px ${randomNumber(0, 3)}px #fff,`;
 }
 console.log(result.substring(0, result.length - 1));
 

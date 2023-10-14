@@ -109,13 +109,13 @@ const materialEuropa = new THREE.MeshBasicMaterial({
 // Inicializa os objetos
 
 const terra = new THREE.Mesh(geometriaTerra, materialTerra);
-const marte = new THREE.Mesh(geometriaMarte, materialMarte); 
+const marte = new THREE.Mesh(geometriaMarte, materialMarte);
 const saturno = new THREE.Mesh(geometriaSaturno, materialSaturno);
-const jupiter = new THREE.Mesh(geometriaJupiter, materialJupiter); 
-const netuno = new THREE.Mesh(geometriaNetuno, materialNetuno); 
+const jupiter = new THREE.Mesh(geometriaJupiter, materialJupiter);
+const netuno = new THREE.Mesh(geometriaNetuno, materialNetuno);
 const urano = new THREE.Mesh(geometriaUrano, materialUrano);
-const venus = new THREE.Mesh(geometriaVenus, materialVenus); 
-const mercurio = new THREE.Mesh(geometriaMercurio, materialMercurio); 
+const venus = new THREE.Mesh(geometriaVenus, materialVenus);
+const mercurio = new THREE.Mesh(geometriaMercurio, materialMercurio);
 const sol = new THREE.Mesh(geometriaSol, materialSol);
 const lua = new THREE.Mesh(geometriaLua, materialLua);
 const tita = new THREE.Mesh(geometriaTita, materialTita);
@@ -147,9 +147,9 @@ saturno.position.set(18, 0, 18);
 urano.position.set(21, 0, 21);
 netuno.position.set(24, 0, 24);
 sol.position.set(0, 0, 0);
-lua.position.set(7.65, 0.3 ,8);
-tita.position.set(19.3, -0.2 ,18);
-europa.position.set(13.7, -0.3 ,15);
+lua.position.set(7.65, 0.3, 8);
+tita.position.set(19.3, -0.2, 18);
+europa.position.set(13.7, -0.3, 15);
 
 // Rotação dos corpos celestes
 
@@ -162,9 +162,9 @@ urano.rotation.set(0, 0, 0);
 venus.rotation.set(0, 0, 0);
 mercurio.rotation.set(0, 0, 0);
 sol.rotation.set(0, 0, 0);
-lua.rotation.set(0,0,0);
-tita.rotation.set(0,0,0);
-europa.rotation.set(0,0,0);
+lua.rotation.set(0, 0, 0);
+tita.rotation.set(0, 0, 0);
+europa.rotation.set(0, 0, 0);
 
 // Escala dos corpos celestes
 
@@ -271,3 +271,65 @@ for (let i = 0; i < STAR_COUNT; i++) {
   )}px ${randomNumber(0, 3)}px #fff,`;
 }
 console.log(result.substring(0, result.length - 1));
+
+// posição inicial da terra
+let earthPosition = [9, 0, 0];
+
+//função que faz a terra se mover em volta do sol
+const translateEarh = () => {
+  // console.log(`x: ${earthPosition[0]} y: ${earthPosition[1]} z: ${earthPosition[2]}`);
+  //primeiro quadrante (x positivo, z positivo)
+  if (
+    earthPosition[0].toFixed(2) >= 0 &&
+    earthPosition[0].toFixed(2) <= 9 &&
+    earthPosition[2].toFixed(2) >= 0 &&
+    earthPosition[2].toFixed(2) <= 9
+  ) {
+    earthPosition[0] -= 0.01;
+    earthPosition[2] += 0.01;
+    // console.log("1° quadrante 🟩");
+  }
+
+  //segundo quadrante (x negativo, z positivo)
+  if (
+    earthPosition[0].toFixed(2) <= 0 &&
+    earthPosition[0].toFixed(2) >= -9 &&
+    earthPosition[2].toFixed(2) >= 0 &&
+    earthPosition[2].toFixed(2) <= 9
+  ) {
+    earthPosition[0] -= 0.01;
+    earthPosition[2] -= 0.01;
+    // console.log("2° quadrante 🟨");
+  }
+
+  //terceiro quadrante (x negativo, z negativo)
+  if (
+    earthPosition[0].toFixed(2) <= 0 &&
+    earthPosition[0].toFixed(2) >= -9 &&
+    earthPosition[2].toFixed(2) <= 0 &&
+    earthPosition[2].toFixed(2) >= -9
+  ) {
+    earthPosition[0] += 0.01;
+    earthPosition[2] -= 0.01;
+    // console.log("3° quadrante 🟧");
+  }
+
+  //quarto quadrante (x positivo, z negativo)
+  if (
+    earthPosition[0].toFixed(2) >= 0 &&
+    earthPosition[0].toFixed(2) <= 9 &&
+    earthPosition[2].toFixed(2) <= 0 &&
+    earthPosition[2].toFixed(2) >= -9
+  ) {
+    earthPosition[0] += 0.01;
+    earthPosition[2] += 0.01;
+    // console.log("4° quadrante 🟥");
+  }
+
+  //posiciona a terra e as nuvens na nova posição
+  terra.position.set(earthPosition[0], earthPosition[1], earthPosition[2]);
+  nuvens.position.set(earthPosition[0], earthPosition[1], earthPosition[2]);
+};
+
+//a cada 1 milisegundo a função translateEarh é chamada e posição da terra é atualizada
+setInterval(translateEarh, 1);

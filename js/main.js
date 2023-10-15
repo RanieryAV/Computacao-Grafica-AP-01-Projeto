@@ -1,3 +1,22 @@
+// Seleciona os botões de rádio e o elemento de resultado
+const value1 = document.getElementById("value-1");
+const value2 = document.getElementById("value-2");
+const value3 = document.getElementById("value-3");
+let multiplicadorTranscao = 0.2;
+
+// Adiciona um ouvinte de eventos para cada botão de rádio
+value1.addEventListener("change", function () {
+  multiplicadorTranscao = 0.2;
+});
+
+value2.addEventListener("change", function () {
+  multiplicadorTranscao = 0.8;
+});
+
+value3.addEventListener("change", function () {
+  multiplicadorTranscao = 3;
+});
+
 // inspirado em https://smallworld.metronomy.co.uk/
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -352,19 +371,19 @@ scene.add(aneis3d);
 //translação
 function translate() {
   //Around-sun-rotation
-  terra3d.rotateY(0.001);
-  nuvens3d.rotateY(0.001);
-  marte3d.rotateY(0.008);
-  saturno3d.rotateY(0.0009);
-  aneis3d.rotateY(0.0009);
-  jupiter3d.rotateY(0.002);
-  netuno3d.rotateY(0.0001);
-  urano3d.rotateY(0.0004);
-  venus3d.rotateY(0.015);
-  mercurio3d.rotateY(0.04);
-  lua3d.rotateY(0.001);
-  tita3d.rotateY(0.0005);
-  europa3d.rotateY(0.003);
+  terra3d.rotateY(0.001 * multiplicadorTranscao);
+  nuvens3d.rotateY(0.001 * multiplicadorTranscao);
+  marte3d.rotateY(0.008 * multiplicadorTranscao);
+  saturno3d.rotateY(0.0009 * multiplicadorTranscao);
+  aneis3d.rotateY(0.0009 * multiplicadorTranscao);
+  jupiter3d.rotateY(0.002 * multiplicadorTranscao);
+  netuno3d.rotateY(0.0001 * multiplicadorTranscao);
+  urano3d.rotateY(0.0004 * multiplicadorTranscao);
+  venus3d.rotateY(0.015 * multiplicadorTranscao);
+  mercurio3d.rotateY(0.04 * multiplicadorTranscao);
+  lua3d.rotateY(0.001 * multiplicadorTranscao);
+  tita3d.rotateY(0.0005 * multiplicadorTranscao);
+  europa3d.rotateY(0.003 * multiplicadorTranscao);
 
   renderer.render(scene, camera);
 }

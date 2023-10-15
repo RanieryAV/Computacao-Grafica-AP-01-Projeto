@@ -143,7 +143,7 @@ tita.position.set(19.3, -0.2, 18);
 europa.position.set(13.7, -0.3, 15);
 
 // ponto de luz
-const pointLight = new THREE.PointLight(0xffffff, 200, 300);
+const pointLight = new THREE.PointLight(0xffffff, 500, 300);
 scene.add(pointLight);
 
 // Rotação dos corpos celestes
@@ -205,20 +205,17 @@ scene.add(nuvens);
 nuvens.position.set(9, 0, 9);
 
 //Aneis Saturno
-const texturaAneis = new THREE.TextureLoader().load(
-  "/texturas/anel.png"
-);
+const texturaAneis = new THREE.TextureLoader().load("/texturas/anel.png");
 
 const geometriaAneis = new THREE.RingGeometry(1.2, 1.7, 64);
 
-const materialAneis = new THREE.MeshBasicMaterial({
+const materialAneis = new THREE.MeshStandardMaterial({
   map: texturaAneis,
   transparent: true, //torna fundo transparente
   side: THREE.DoubleSide, //garante que o anel aparça dos 2 lados
 });
 
 const aneis = new THREE.Mesh(geometriaAneis, materialAneis);
-scene.add(aneis);
 aneis.position.set(18, 0, 18);
 aneis.rotation.x = Math.PI / -1.5;
 
@@ -320,6 +317,7 @@ const lua3d = new THREE.Object3D();
 const tita3d = new THREE.Object3D();
 const europa3d = new THREE.Object3D();
 const nuvens3d = new THREE.Object3D();
+const aneis3d = new THREE.Object3D();
 
 //adicionando o mash dos planetas nos objetos 3D
 terra3d.add(terra);
@@ -334,6 +332,7 @@ lua3d.add(lua);
 tita3d.add(tita);
 europa3d.add(europa);
 nuvens3d.add(nuvens);
+aneis3d.add(aneis);
 
 //adicionando os objetos 3D na cena
 scene.add(terra3d);
@@ -348,6 +347,7 @@ scene.add(lua3d);
 scene.add(tita3d);
 scene.add(europa3d);
 scene.add(nuvens3d);
+scene.add(aneis3d);
 
 //translação
 function translate() {
@@ -356,6 +356,7 @@ function translate() {
   nuvens3d.rotateY(0.001);
   marte3d.rotateY(0.008);
   saturno3d.rotateY(0.0009);
+  aneis3d.rotateY(0.0009);
   jupiter3d.rotateY(0.002);
   netuno3d.rotateY(0.0001);
   urano3d.rotateY(0.0004);

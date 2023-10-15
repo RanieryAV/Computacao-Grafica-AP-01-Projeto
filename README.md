@@ -8,7 +8,7 @@
 # Install the dependencies
 
 $ npm i
-s
+
 # Run
 
 $ npx vite

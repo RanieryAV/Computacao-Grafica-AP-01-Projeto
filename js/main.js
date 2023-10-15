@@ -204,7 +204,24 @@ const nuvens = new THREE.Mesh(geometriaNuvens, materialNuvens);
 scene.add(nuvens);
 nuvens.position.set(9, 0, 9);
 
-// Anel de Saturno
+//Aneis Saturno
+const texturaAneis = new THREE.TextureLoader().load(
+  "/texturas/anel.png"
+);
+
+const geometriaAneis = new THREE.RingGeometry(1.2, 1.7, 64);
+
+const materialAneis = new THREE.MeshBasicMaterial({
+  map: texturaAneis,
+  transparent: true, //torna fundo transparente
+  side: THREE.DoubleSide, //garante que o anel aparça dos 2 lados
+});
+
+const aneis = new THREE.Mesh(geometriaAneis, materialAneis);
+scene.add(aneis);
+aneis.position.set(18, 0, 18);
+aneis.rotation.x = Math.PI / -1.5;
+
 // Satelite
 
 // Animação

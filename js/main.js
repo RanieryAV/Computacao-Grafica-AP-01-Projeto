@@ -255,10 +255,10 @@ function animate() {
   marte.rotation.y += astroRotacoes["Marte"];
 
   // Planetas gasosos
-  jupiter.rotation.y += planetasRotacoes["Jupiter"];
-  saturno.rotation.y += planetasRotacoes["Saturno"];
-  urano.rotation.y += planetasRotacoes["Urano"];
-  netuno.rotation.y += planetasRotacoes["Netuno"];
+  jupiter.rotation.y += astroRotacoes["Jupiter"];
+  saturno.rotation.y += astroRotacoes["Saturno"];
+  urano.rotation.y += astroRotacoes["Urano"];
+  netuno.rotation.y += astroRotacoes["Netuno"];
 
   // Rotaciona Lua
   lua.rotation.y += 0.001;

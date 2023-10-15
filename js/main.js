@@ -23,7 +23,12 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  30,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 
 // Reposicionamento da câmera em Z
 camera.position.set(0, 0, 45);
@@ -211,7 +216,9 @@ camera.position.z = 40;
 // Detalhes Adicionais:
 // Nuvens
 
-const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
+const texturaNuvens = new THREE.TextureLoader().load(
+  "/texturas/small-world-clouds.png"
+);
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
 
 const materialNuvens = new THREE.MeshStandardMaterial({
@@ -316,10 +323,10 @@ function randomNumber(min, max) {
 const STAR_COUNT = 100;
 let result = "";
 for (let i = 0; i < STAR_COUNT; i++) {
-  result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(
-    0,
-    3
-  )}px ${randomNumber(0, 3)}px #fff,`;
+  result += `${randomNumber(-50, 50)}vw ${randomNumber(
+    -50,
+    50
+  )}vh ${randomNumber(0, 3)}px ${randomNumber(0, 3)}px #fff,`;
 }
 console.log(result.substring(0, result.length - 1));
 
@@ -371,7 +378,7 @@ scene.add(aneis3d);
 //translação
 function translate() {
   //Around-sun-rotation
-  terra3d.rotateY(0.001 * multiplicadorTranscao);
+  terra3d.rotateY(0.0121 * multiplicadorTranscao);
   nuvens3d.rotateY(0.001 * multiplicadorTranscao);
   marte3d.rotateY(0.008 * multiplicadorTranscao);
   saturno3d.rotateY(0.0009 * multiplicadorTranscao);

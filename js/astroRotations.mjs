@@ -1,4 +1,4 @@
-// Esse código contém a função que, a partir do dia jupiteriano, arredondado para dez horas e da velocidade com que jupiter realiza uma volta por segundo na simulação, utlizando um padrão de 10 horas terrestres para um segundo virtual, calcula a velocidade de rotação dos outros planetas.
+// Esse código contém a função que, a partir do dia jupiteriano, arredondado para dez horas e da velocidade com que jupiter realiza uma volta por segundo na simulação, utlizando um padrão de 10 horas terrestres para um segundo virtual, calcula a velocidade de rotação dos outros planetas e também do Sol, a estrela do sistema solar
 
 function calcularVelocidadesRotacao() {
   // Valor de radiano_jupiter
@@ -7,8 +7,9 @@ function calcularVelocidadesRotacao() {
   // Valor em segundos para o tempo de rotação de Júpiter (9 horas e 48 minutos)
   const dia_jupiter = 36000;
 
-  // Valores em segundos dos tempos de rotação dos outros planetas
-  const valores_planetas = {
+  // Valores em segundos dos tempos de rotação dos outros planetas e do Sol
+  const valores_astros = {
+    Sol: 2356340,
     Mercurio: 5034240,
     Venus: 19429200,
     Terra: 86160,
@@ -18,14 +19,14 @@ function calcularVelocidadesRotacao() {
     Netuno: 68760,
   };
 
-  // Calcular a velocidade de rotação para cada planeta com 4 casas decimais
+  // Calcular a velocidade de rotação para cada astro com 4 casas decimais
   const velocidades_rotacao = {};
-  for (const planeta in valores_planetas) {
-    const tempo = valores_planetas[planeta];
+  for (const astro in valores_astros) {
+    const tempo = valores_astros[astro];
     const velocidade_rotacao = parseFloat(
-      ((3600 / tempo) * radiano_jupiter).toFixed(4)
+      ((dia_jupiter / tempo) * radiano_jupiter).toFixed(4)
     );
-    velocidades_rotacao[planeta] = velocidade_rotacao;
+    velocidades_rotacao[astro] = velocidade_rotacao;
   }
 
   // Serializar o objeto com as velocidades de rotação em JSON

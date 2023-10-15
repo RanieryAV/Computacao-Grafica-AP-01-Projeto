@@ -1,6 +1,6 @@
 // inspirado em https://smallworld.metronomy.co.uk/
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
 
@@ -229,7 +229,7 @@ nuvens.position.set(9, 0, 9);
 // ----------
 
 // Definindo o objeto planetasRotacoes com os valores em formato JSON
-const planetasRotacoes = {
+const astroRotacoes = {
   Mercurio: 0.0001,
   Venus: 0.00002,
   Terra: 0.0044,
@@ -245,11 +245,14 @@ function animate() {
   // Requisita quadros de animação
   requestAnimationFrame(animate);
 
+  // Sol
+  sol.rotation.y += 0.0016;
+
   // Planetas rochosos
-  terra.rotation.y += planetasRotacoes["Terra"];
-  venus.rotation.y += planetasRotacoes["Venus"];
-  mercurio.rotation.y += planetasRotacoes["Mercurio"];
-  marte.rotation.y += planetasRotacoes["Marte"];
+  terra.rotation.y += astroRotacoes["Terra"];
+  venus.rotation.y += astroRotacoes["Venus"];
+  mercurio.rotation.y += astroRotacoes["Mercurio"];
+  marte.rotation.y += astroRotacoes["Marte"];
 
   // Planetas gasosos
   jupiter.rotation.y += planetasRotacoes["Jupiter"];

@@ -62,7 +62,7 @@ const geometriaEuropa = new THREE.SphereGeometry(1, 32, 32);
 
 // Inicializa os materiais
 
-const materialTerra = new THREE.MeshBasicMaterial({
+const materialTerra = new THREE.MeshStandardMaterial({
   map: texturaTerra,
 });
 
@@ -70,43 +70,43 @@ const materialSol = new THREE.MeshBasicMaterial({
   map: texturaSol,
 });
 
-const materialMarte = new THREE.MeshBasicMaterial({
+const materialMarte = new THREE.MeshStandardMaterial({
   map: texturaMarte,
 });
 
-const materialVenus = new THREE.MeshBasicMaterial({
+const materialVenus = new THREE.MeshStandardMaterial({
   map: texturaVenus,
 });
 
-const materialMercurio = new THREE.MeshBasicMaterial({
+const materialMercurio = new THREE.MeshStandardMaterial({
   map: texturaMercurio,
 });
 
-const materialJupiter = new THREE.MeshBasicMaterial({
+const materialJupiter = new THREE.MeshStandardMaterial({
   map: texturaJupiter,
 });
 
-const materialSaturno = new THREE.MeshBasicMaterial({
+const materialSaturno = new THREE.MeshStandardMaterial({
   map: texturaSaturno,
 });
 
-const materialUrano = new THREE.MeshBasicMaterial({
+const materialUrano = new THREE.MeshStandardMaterial({
   map: texturaUrano,
 });
 
-const materialNetuno = new THREE.MeshBasicMaterial({
+const materialNetuno = new THREE.MeshStandardMaterial({
   map: texturaNetuno,
 });
 
-const materialLua = new THREE.MeshBasicMaterial({
+const materialLua = new THREE.MeshStandardMaterial({
   map: texturaLua,
 });
 
-const materialTita = new THREE.MeshBasicMaterial({
+const materialTita = new THREE.MeshStandardMaterial({
   map: texturaTita,
 });
 
-const materialEuropa = new THREE.MeshBasicMaterial({
+const materialEuropa = new THREE.MeshStandardMaterial({
   map: texturaEuropa,
 });
 
@@ -141,6 +141,10 @@ sol.position.set(0, 0, 0);
 lua.position.set(7.65, 0.3, 8);
 tita.position.set(19.3, -0.2, 18);
 europa.position.set(13.7, -0.3, 15);
+
+// ponto de luz
+const pointLight = new THREE.PointLight(0xffffff, 200, 300);
+scene.add(pointLight);
 
 // Rotação dos corpos celestes
 terra.rotation.set(0, 0, 0);
@@ -191,7 +195,7 @@ camera.position.z = 40;
 const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
 
-const materialNuvens = new THREE.MeshBasicMaterial({
+const materialNuvens = new THREE.MeshStandardMaterial({
   map: texturaNuvens,
   transparent: true, //torna fundo transparente
 });

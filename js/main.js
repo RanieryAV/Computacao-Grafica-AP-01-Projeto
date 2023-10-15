@@ -1,4 +1,7 @@
 // inspirado em https://smallworld.metronomy.co.uk/
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -27,7 +30,9 @@ document.body.appendChild(renderer.domElement);
 // recomendo usar com mjs e npm, seguindo:
 // https://threejs.org/docs/index.html#manual/en/introduction/Installation
 
-//const controls = new OrbitControls(camera, renderer.domElement)
+// Controles
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = true;
 
 // Texturas
 

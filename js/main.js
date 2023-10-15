@@ -4,12 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(
-  30,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 // Reposicionamento da câmera em Z
 camera.position.set(0, 0, 45);
@@ -35,7 +30,6 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = true;
 
 // Texturas
-
 const textureLoader = new THREE.TextureLoader();
 
 const texturaTerra = textureLoader.load("/texturas/small-world.jpg");
@@ -131,23 +125,10 @@ const lua = new THREE.Mesh(geometriaLua, materialLua);
 const tita = new THREE.Mesh(geometriaTita, materialTita);
 const europa = new THREE.Mesh(geometriaEuropa, materialEuropa);
 
-// Adiciona cada objeto a cena
-
-scene.add(terra);
-scene.add(marte);
-scene.add(saturno);
-scene.add(jupiter);
-scene.add(netuno);
-scene.add(urano);
-scene.add(venus);
-scene.add(mercurio);
+// Adiciona cada objeto o sol a cena
 scene.add(sol);
-scene.add(lua);
-scene.add(tita);
-scene.add(europa);
 
 // Posicionamento dos corpos celestes
-
 mercurio.position.set(3, 0, 3);
 venus.position.set(6, 0, 6);
 terra.position.set(9, 0, 9);
@@ -162,7 +143,6 @@ tita.position.set(19.3, -0.2, 18);
 europa.position.set(13.7, -0.3, 15);
 
 // Rotação dos corpos celestes
-
 terra.rotation.set(0, 0, 0);
 marte.rotation.set(0, 0, 0);
 saturno.rotation.set(0, 0, 0);
@@ -208,9 +188,7 @@ camera.position.z = 40;
 // Detalhes Adicionais:
 // Nuvens
 
-const texturaNuvens = new THREE.TextureLoader().load(
-  "/texturas/small-world-clouds.png"
-);
+const texturaNuvens = new THREE.TextureLoader().load("/texturas/small-world-clouds.png");
 const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
 
 const materialNuvens = new THREE.MeshBasicMaterial({
@@ -301,71 +279,72 @@ function randomNumber(min, max) {
 const STAR_COUNT = 100;
 let result = "";
 for (let i = 0; i < STAR_COUNT; i++) {
-  result += `${randomNumber(-50, 50)}vw ${randomNumber(
-    -50,
-    50
-  )}vh ${randomNumber(0, 3)}px ${randomNumber(0, 3)}px #fff,`;
+  result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(
+    0,
+    3
+  )}px ${randomNumber(0, 3)}px #fff,`;
 }
 console.log(result.substring(0, result.length - 1));
 
-// posição inicial da terra
-let earthPosition = [9, 0, 0];
+//objetos 3D dos planetas
+const terra3d = new THREE.Object3D();
+const marte3d = new THREE.Object3D();
+const saturno3d = new THREE.Object3D();
+const jupiter3d = new THREE.Object3D();
+const netuno3d = new THREE.Object3D();
+const urano3d = new THREE.Object3D();
+const venus3d = new THREE.Object3D();
+const mercurio3d = new THREE.Object3D();
+const lua3d = new THREE.Object3D();
+const tita3d = new THREE.Object3D();
+const europa3d = new THREE.Object3D();
+const nuvens3d = new THREE.Object3D();
 
-//função que faz a terra se mover em volta do sol
-const translateEarh = () => {
-  // console.log(`x: ${earthPosition[0]} y: ${earthPosition[1]} z: ${earthPosition[2]}`);
-  //primeiro quadrante (x positivo, z positivo)
-  if (
-    earthPosition[0].toFixed(2) >= 0 &&
-    earthPosition[0].toFixed(2) <= 9 &&
-    earthPosition[2].toFixed(2) >= 0 &&
-    earthPosition[2].toFixed(2) <= 9
-  ) {
-    earthPosition[0] -= 0.01;
-    earthPosition[2] += 0.01;
-    // console.log("1° quadrante 🟩");
-  }
+//adicionando o mash dos planetas nos objetos 3D
+terra3d.add(terra);
+marte3d.add(marte);
+saturno3d.add(saturno);
+jupiter3d.add(jupiter);
+netuno3d.add(netuno);
+urano3d.add(urano);
+venus3d.add(venus);
+mercurio3d.add(mercurio);
+lua3d.add(lua);
+tita3d.add(tita);
+europa3d.add(europa);
+nuvens3d.add(nuvens);
 
-  //segundo quadrante (x negativo, z positivo)
-  if (
-    earthPosition[0].toFixed(2) <= 0 &&
-    earthPosition[0].toFixed(2) >= -9 &&
-    earthPosition[2].toFixed(2) >= 0 &&
-    earthPosition[2].toFixed(2) <= 9
-  ) {
-    earthPosition[0] -= 0.01;
-    earthPosition[2] -= 0.01;
-    // console.log("2° quadrante 🟨");
-  }
+//adicionando os objetos 3D na cena
+scene.add(terra3d);
+scene.add(marte3d);
+scene.add(saturno3d);
+scene.add(jupiter3d);
+scene.add(netuno3d);
+scene.add(urano3d);
+scene.add(venus3d);
+scene.add(mercurio3d);
+scene.add(lua3d);
+scene.add(tita3d);
+scene.add(europa3d);
+scene.add(nuvens3d);
 
-  //terceiro quadrante (x negativo, z negativo)
-  if (
-    earthPosition[0].toFixed(2) <= 0 &&
-    earthPosition[0].toFixed(2) >= -9 &&
-    earthPosition[2].toFixed(2) <= 0 &&
-    earthPosition[2].toFixed(2) >= -9
-  ) {
-    earthPosition[0] += 0.01;
-    earthPosition[2] -= 0.01;
-    // console.log("3° quadrante 🟧");
-  }
+//translação
+function translate() {
+  //Around-sun-rotation
+  terra3d.rotateY(0.001);
+  nuvens3d.rotateY(0.001);
+  marte3d.rotateY(0.008);
+  saturno3d.rotateY(0.0009);
+  jupiter3d.rotateY(0.002);
+  netuno3d.rotateY(0.0001);
+  urano3d.rotateY(0.0004);
+  venus3d.rotateY(0.015);
+  mercurio3d.rotateY(0.04);
+  lua3d.rotateY(0.001);
+  tita3d.rotateY(0.0005);
+  europa3d.rotateY(0.003);
 
-  //quarto quadrante (x positivo, z negativo)
-  if (
-    earthPosition[0].toFixed(2) >= 0 &&
-    earthPosition[0].toFixed(2) <= 9 &&
-    earthPosition[2].toFixed(2) <= 0 &&
-    earthPosition[2].toFixed(2) >= -9
-  ) {
-    earthPosition[0] += 0.01;
-    earthPosition[2] += 0.01;
-    // console.log("4° quadrante 🟥");
-  }
+  renderer.render(scene, camera);
+}
 
-  //posiciona a terra e as nuvens na nova posição
-  terra.position.set(earthPosition[0], earthPosition[1], earthPosition[2]);
-  nuvens.position.set(earthPosition[0], earthPosition[1], earthPosition[2]);
-};
-
-//a cada 1 milisegundo a função translateEarh é chamada e posição da terra é atualizada
-setInterval(translateEarh, 1);
+renderer.setAnimationLoop(translate);

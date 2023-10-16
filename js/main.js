@@ -1,10 +1,10 @@
-// Seleciona os botões de rádio e o elemento de resultado
+// Seleciona os botões circulares e o elemento de resultado
 const value1 = document.getElementById("value-1");
 const value2 = document.getElementById("value-2");
 const value3 = document.getElementById("value-3");
 let multiplicadorTranscao = 0.2;
 
-// Adiciona um ouvinte de eventos para cada botão de rádio
+// Adiciona um ouvinte de eventos para cada botão circular
 value1.addEventListener("change", function () {
   multiplicadorTranscao = 0.2;
 });
@@ -46,7 +46,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Inicializa controles de órbita
-// recomendo usar com mjs e npm, seguindo:
+// recomendado usar com mjs e npm, seguindo:
 // https://threejs.org/docs/index.html#manual/en/introduction/Installation
 
 // Controles
@@ -205,21 +205,10 @@ camera.position.x = 18;
 camera.position.y = 0;
 camera.position.z = 40;
 
-// Rotação da câmera
-// ----------
-// Rotaciona câmera em X
-
-// Rotaciona câmera em Z
-
-// Rotaciona câmera em Y
-
-// Detalhes Adicionais:
-// Nuvens
-
 const texturaNuvens = new THREE.TextureLoader().load(
   "/texturas/small-world-clouds.png"
 );
-const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomenda dimensão um pouco maior que a da Terra
+const geometriaNuvens = new THREE.SphereGeometry(1.05, 40, 40); // recomendado dimensão um pouco maior que a da Terra
 
 const materialNuvens = new THREE.MeshStandardMaterial({
   map: texturaNuvens,
@@ -245,13 +234,9 @@ const aneis = new THREE.Mesh(geometriaAneis, materialAneis);
 aneis.position.set(18, 0, 18);
 aneis.rotation.x = Math.PI / -1.5;
 
-// Satelite
-
-// Animação
-// ----------
-
 // Definindo o objeto planetasRotacoes com os valores em formato JSON
 const astroRotacoes = {
+  Sol: 0.0016,
   Mercurio: 0.0001,
   Venus: 0.00002,
   Terra: 0.0044,
@@ -268,7 +253,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   // Sol
-  sol.rotation.y += 0.0016;
+  sol.rotation.y += astroRotacoes["Sol"];
 
   // Planetas rochosos
   terra.rotation.y += astroRotacoes["Terra"];
@@ -301,9 +286,6 @@ function animate() {
 // Chamada da função animate
 animate();
 
-// Redimensiona janela
-// ----------
-
 // Listener para redimensionamento da janela
 window.addEventListener("resize", () => {
   // Atualiza proporção (aspect) da câmera
@@ -330,67 +312,85 @@ for (let i = 0; i < STAR_COUNT; i++) {
 }
 console.log(result.substring(0, result.length - 1));
 
-//objetos 3D dos planetas
-const terra3d = new THREE.Object3D();
-const marte3d = new THREE.Object3D();
-const saturno3d = new THREE.Object3D();
-const jupiter3d = new THREE.Object3D();
-const netuno3d = new THREE.Object3D();
-const urano3d = new THREE.Object3D();
-const venus3d = new THREE.Object3D();
-const mercurio3d = new THREE.Object3D();
-const lua3d = new THREE.Object3D();
-const tita3d = new THREE.Object3D();
-const europa3d = new THREE.Object3D();
-const nuvens3d = new THREE.Object3D();
-const aneis3d = new THREE.Object3D();
+// Objetos 3D para os planetas rochosos e satélites naturais
+const terra3d = new THREE.Object3D(); // Terra
+const marte3d = new THREE.Object3D(); // Marte
+const venus3d = new THREE.Object3D(); // Vênus
+const mercurio3d = new THREE.Object3D(); // Mercúrio
+const lua3d = new THREE.Object3D(); // Lua
+const tita3d = new THREE.Object3D(); // Titã
+const europa3d = new THREE.Object3D(); // Europa
 
-//adicionando o mash dos planetas nos objetos 3D
-terra3d.add(terra);
-marte3d.add(marte);
-saturno3d.add(saturno);
-jupiter3d.add(jupiter);
-netuno3d.add(netuno);
-urano3d.add(urano);
-venus3d.add(venus);
-mercurio3d.add(mercurio);
-lua3d.add(lua);
-tita3d.add(tita);
-europa3d.add(europa);
-nuvens3d.add(nuvens);
-aneis3d.add(aneis);
+// Objetos 3D para os planetas gasosos
+const jupiter3d = new THREE.Object3D(); // Júpiter
+const saturno3d = new THREE.Object3D(); // Saturno
+const urano3d = new THREE.Object3D(); // Urano
+const netuno3d = new THREE.Object3D(); // Netuno
 
-//adicionando os objetos 3D na cena
-scene.add(terra3d);
-scene.add(marte3d);
-scene.add(saturno3d);
-scene.add(jupiter3d);
-scene.add(netuno3d);
-scene.add(urano3d);
-scene.add(venus3d);
-scene.add(mercurio3d);
-scene.add(lua3d);
-scene.add(tita3d);
-scene.add(europa3d);
-scene.add(nuvens3d);
-scene.add(aneis3d);
+// Objetos 3D para nuvens e anéis
+const nuvens3d = new THREE.Object3D(); // Nuvens
+const aneis3d = new THREE.Object3D(); // Anéis de Saturno
+
+// Adicionando o mesh dos planetas nos objetos 3D
+terra3d.add(terra); // Terra
+marte3d.add(marte); // Marte
+venus3d.add(venus); // Vênus
+mercurio3d.add(mercurio); // Mercúrio
+lua3d.add(lua); // Lua
+tita3d.add(tita); // Titã
+europa3d.add(europa); // Europa
+
+// Adicionando o mesh dos planetas gasosos nos objetos 3D
+jupiter3d.add(jupiter); // Júpiter
+saturno3d.add(saturno); // Saturno
+urano3d.add(urano); // Urano
+netuno3d.add(netuno); // Netuno
+
+// Adicionando o mesh das nuvens e dos anéis nos objetos 3D
+nuvens3d.add(nuvens); // Nuvens
+aneis3d.add(aneis); // Anéis de Saturno
+
+// Adicionando os objetos 3D dos planetas rochosos à cena
+scene.add(terra3d); // Terra
+scene.add(marte3d); // Marte
+scene.add(venus3d); // Vênus
+scene.add(mercurio3d); // Mercúrio
+
+// Adicionando os objetos 3D dos planetas gasosos à cena
+scene.add(jupiter3d); // Júpiter
+scene.add(saturno3d); // Saturno
+scene.add(urano3d); // Urano
+scene.add(netuno3d); // Netuno
+
+// Adicionando os objetos 3D dos satélites naturais à cena
+scene.add(lua3d); // Lua
+scene.add(tita3d); // Titã
+scene.add(europa3d); // Europa
+
+// Adicionando os objetos 3D das nuvens e dos anéis à cena
+scene.add(nuvens3d); // Nuvens
+scene.add(aneis3d); // Anéis de Saturno
 
 //translação
 function translate() {
-  //Around-sun-rotation
-  terra3d.rotateY(0.0121 * multiplicadorTranscao);
-  nuvens3d.rotateY(0.001 * multiplicadorTranscao);
-  marte3d.rotateY(0.008 * multiplicadorTranscao);
-  saturno3d.rotateY(0.0009 * multiplicadorTranscao);
-  aneis3d.rotateY(0.0009 * multiplicadorTranscao);
-  jupiter3d.rotateY(0.002 * multiplicadorTranscao);
-  netuno3d.rotateY(0.0001 * multiplicadorTranscao);
-  urano3d.rotateY(0.0004 * multiplicadorTranscao);
+  // Planetas rochosos
+  mercurio3d.rotateY(0.05 * multiplicadorTranscao);
   venus3d.rotateY(0.015 * multiplicadorTranscao);
-  mercurio3d.rotateY(0.04 * multiplicadorTranscao);
-  lua3d.rotateY(0.001 * multiplicadorTranscao);
-  tita3d.rotateY(0.0005 * multiplicadorTranscao);
-  europa3d.rotateY(0.003 * multiplicadorTranscao);
+  terra3d.rotateY(0.0121 * multiplicadorTranscao);
+  marte3d.rotateY(0.0063 * multiplicadorTranscao);
+  nuvens3d.rotateY(0.0121 * multiplicadorTranscao);
+
+  // Planetas gasosos
+  jupiter3d.rotateY(0.001 * multiplicadorTranscao);
+  saturno3d.rotateY(0.0004 * multiplicadorTranscao);
+  aneis3d.rotateY(0.0004 * multiplicadorTranscao);
+  urano3d.rotateY(0.0001 * multiplicadorTranscao);
+  netuno3d.rotateY(0.0001 * multiplicadorTranscao);
+
+  // Satélites naturais
+  lua3d.rotateY(0.0121 * multiplicadorTranscao);
+  tita3d.rotateY(0.0004 * multiplicadorTranscao);
+  europa3d.rotateY(0.001 * multiplicadorTranscao);
 
   renderer.render(scene, camera);
 }

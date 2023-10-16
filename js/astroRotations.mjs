@@ -1,7 +1,7 @@
 // Esse código contém a função que, a partir do dia jupiteriano, arredondado para dez horas e da velocidade com que jupiter realiza uma volta por segundo na simulação, utlizando um padrão de 10 horas terrestres para um segundo virtual, calcula a velocidade de rotação dos outros planetas e também do Sol, a estrela do sistema solar
 
 function calcularVelocidadesRotacao() {
-  // Valor de radiano_jupiter
+  // Valor de jupiter em radianos nessa simulação
   const radiano_jupiter = 0.1047;
 
   // Valor em segundos para o tempo de rotação de Júpiter (9 horas e 48 minutos)

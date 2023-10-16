@@ -42,3 +42,6 @@ Technologies used to develop this application:
 - [Vite](https://vitejs.dev/)
 
 - [OpenGL](https://www.opengl.org/)
+
+## Textures' source: https://www.solarsystemscope.com/textures/
+## The

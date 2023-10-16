@@ -1,6 +1,11 @@
 # Solar System 🌍
 
-![Image](https://private-user-images.githubusercontent.com/66041553/275358180-cc8a82c4-befc-49ed-a198-27337fc71088.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE2OTc0MDk2NzEsIm5iZiI6MTY5NzQwOTM3MSwicGF0aCI6Ii82NjA0MTU1My8yNzUzNTgxODAtY2M4YTgyYzQtYmVmYy00OWVkLWExOTgtMjczMzdmYzcxMDg4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEwMTUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMDE1VDIyMzYxMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAwYmI2YzE2MjI1OWFlNzZkMThlZjBhNDljYzZhZTFhZWJiNTIxMTNkMmMwYWVjYzIxNGM4YmQwNmExNzIwNGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.psul_WVRAm4_mfBcCtyGuZklRfzgxFlUv9x04-GcZ1M)
+## Standard view after inicializing the code
+![2023-10-16 14-18-28 start=1 length=24 fps=5](https://github.com/RanieryAV/Computacao-Grafica-AP-01-Projeto/assets/58216614/9177118b-6735-46e6-b9e0-b224b9d098bb)
+
+## Feature: Planet rotation
+![2023-10-16 14-37-09 start=1 length=5 fps=10](https://github.com/RanieryAV/Computacao-Grafica-AP-01-Projeto/assets/58216614/5869cfcb-8837-423f-b30f-d9c4dfffb47b)
+
 
 ## ❓ How to Start ?
 

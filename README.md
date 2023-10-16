@@ -44,4 +44,3 @@ Technologies used to develop this application:
 - [OpenGL](https://www.opengl.org/)
 
 ## Textures' source: https://www.solarsystemscope.com/textures/
-## The

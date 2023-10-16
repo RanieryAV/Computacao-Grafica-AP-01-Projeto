@@ -15,6 +15,10 @@
 ## Feature: Zoom in/out the camera (Mouse Pinch-To-Zoom on touchpad OR CTRL + Mousewheel)
 ![2023-10-16 15-26-20 start=1 length=24 fps=5](https://github.com/RanieryAV/Computacao-Grafica-AP-01-Projeto/assets/58216614/e67af3cf-f4e5-47e0-b6fd-8183a67113db)
 
+## Feature: Change speed of planet rotation and translation
+![2023-10-16 15-46-46 start=1 length=12 fps=10](https://github.com/RanieryAV/Computacao-Grafica-AP-01-Projeto/assets/58216614/bef127f5-5ac5-4320-ad7e-3adfadda69bd)
+
+
 ## ❓ How to run the project:
 
 ```bash

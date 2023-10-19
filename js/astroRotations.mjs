@@ -38,3 +38,27 @@ function calcularVelocidadesRotacao() {
 // Chamar a função para calcular as velocidades de rotação e imprimir o resultado
 const resultado = calcularVelocidadesRotacao();
 console.log(resultado);
+
+/* 
+Exemplo de uso do código para utilização fora do módulo com a função exportada. 
+
+const velocidadesRotacao = calcularVelocidadesRotacao(
+  0.1047,
+  {
+    Sol: 2356340,
+    Mercurio: 5034240,
+    Venus: 19429200,
+    Terra: 86160,
+    Marte: 88620,
+    Saturno: 36720,
+    Urano: 64440,
+    Netuno: 68760,
+  }
+);
+
+console.log(velocidadesRotacao);
+
+
+
+
+*/

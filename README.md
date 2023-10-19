@@ -1,4 +1,4 @@
-# readme atualizado
+# README.md
 
 # [Solar System 🌍](https://github.com/RanieryAV/Computacao-Grafica-AP-01-Projeto#solar-system-)
 
@@ -89,8 +89,7 @@ In this case, the function is called `calculateRotationSpeeds()` and receives tw
 The function calculates the rotation speed of each planet using the following formula:
 
 ```jsx
-velocidadeRotacao = (diaJupiter / tempoRotacao) * radianoJupiter
-
+velocidadeRotacao = (diaJupiter / tempoRotacao) * radianoJupiter;
 ```
 
 Where:
@@ -106,38 +105,33 @@ The function returns a JSON object that contains the rotation speeds of all the 
 The following example shows how to use the code to calculate the rotation speed of the planets:
 
 ```jsx
-const velocidadesRotacao = calcularVelocidadesRotacao(
-  0.1047,
-  {
-    Sol: 2356340,
-    Mercurio: 5034240,
-    Venus: 19429200,
-    Terra: 86160,
-    Marte: 88620,
-    Saturno: 36720,
-    Urano: 64440,
-    Netuno: 68760,
-  }
-);
+const velocidadesRotacao = calcularVelocidadesRotacao(0.1047, {
+  Sol: 2356340,
+  Mercurio: 5034240,
+  Venus: 19429200,
+  Terra: 86160,
+  Marte: 88620,
+  Saturno: 36720,
+  Urano: 64440,
+  Netuno: 68760,
+});
 
 console.log(velocidadesRotacao);
-
 ```
 
 The output of the code is as follows:
 
 ```json
 {
-    "Sol": 0.0016,
-    "Mercurio": 0.0007,
-    "Venus": 0.0002,
-    "Terra": 0.0437,
-    "Marte": 0.0425,
-    "Saturno": 0.1026,
-    "Urano": 0.0585,
-    "Netuno": 0.0548
+  "Sol": 0.0016,
+  "Mercurio": 0.0007,
+  "Venus": 0.0002,
+  "Terra": 0.0437,
+  "Marte": 0.0425,
+  "Saturno": 0.1026,
+  "Urano": 0.0585,
+  "Netuno": 0.0548
 }
-
 ```
 
 **Notes 🗒️**

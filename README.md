@@ -190,6 +190,65 @@ The values of the rotation speeds were chosen to be precise and realistic. This 
 
 ### 🌟 Astro's Translations 🌠
 
+The planets and natural satellites of the solar system are animated by rotation around the Y axis, at the center of the system.
+
+The translation speed ⌚ is multiplied by _multiplicadorTranscao_, which can be changed by the user, within pre-defined values, through buttons on the system interface.
+
+1️⃣ The first part of the code below adds the 3D objects of planets🪐, natural satellites, clouds and rings to the scene. This is done using the add() method of the Scene class.
+
+```js
+scene.add(terra3d);
+scene.add(marte3d);
+scene.add(venus3d);
+scene.add(mercurio3d);
+
+scene.add(jupiter3d);
+scene.add(saturno3d);
+scene.add(urano3d);
+scene.add(netuno3d);
+
+scene.add(lua3d);
+scene.add(tita3d);
+scene.add(europa3d);
+
+scene.add(nuvens3d);
+scene.add(aneis3d);
+```
+
+2️⃣ The second part of the code below animates the rotation of 3D objects. This is done using the translate() function.
+
+The translate() function calls the rotateY() method to rotate each 3D object around the Y axis at the center of the system, which we determine as translation. Translational speed is calculated by multiplying the object's rotational speed by the translation multiplier.
+
+The translation multiplier is a variable that can be used to control the speed of rotation. A higher value will make objects rotate faster, these values and the multiplier are used in the buttons that change the translation speed of celestial bodies.
+
+```js
+function translate() {
+  mercurio3d.rotateY(0.05 * multiplicadorTranscao);
+  venus3d.rotateY(0.015 * multiplicadorTranscao);
+  terra3d.rotateY(0.0121 * multiplicadorTranscao);
+  marte3d.rotateY(0.0063 * multiplicadorTranscao);
+  nuvens3d.rotateY(0.0121 * multiplicadorTranscao);
+
+  jupiter3d.rotateY(0.001 * multiplicadorTranscao);
+  saturno3d.rotateY(0.0004 * multiplicadorTranscao);
+  aneis3d.rotateY(0.0004 * multiplicadorTranscao);
+  urano3d.rotateY(0.0001 * multiplicadorTranscao);
+  netuno3d.rotateY(0.0001 * multiplicadorTranscao);
+
+  lua3d.rotateY(0.0121 * multiplicadorTranscao);
+  tita3d.rotateY(0.0004 * multiplicadorTranscao);
+  europa3d.rotateY(0.001 * multiplicadorTranscao);
+
+  renderer.render(scene, camera);
+}
+```
+
+3️⃣ The third part of the code below performs the animation using the setAnimationLoop() method of the Renderer class.
+
+```js
+renderer.setAnimationLoop(translate);
+```
+
 ## ℹ️ Sources
 
 ### Textures: [https://www.solarsystemscope.com/textures/](https://www.solarsystemscope.com/textures/)
